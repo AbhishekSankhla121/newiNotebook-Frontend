@@ -18,10 +18,11 @@ export default function Home() {
     addNote,
     userNote,
   } = useContext(userContext);
-  if (localStorage.token === undefined) {
+
+  useEffect(() => {
+      if (localStorage.token === undefined) {
     navigate("/login");
   }
-  useEffect(() => {
     fetchUserProfile();
     fetchUserNote();
   }, []);
